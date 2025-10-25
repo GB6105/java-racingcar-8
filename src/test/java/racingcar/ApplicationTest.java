@@ -39,7 +39,6 @@ class ApplicationTest extends NsTest {
         assertThat(inputView.inputCarNames()).isEqualTo(expect);
     }
 
-
     @ParameterizedTest
     @ValueSource(strings = {
             "nameLengthOver",
@@ -56,6 +55,12 @@ class ApplicationTest extends NsTest {
                 isInstanceOf(IllegalArgumentException.class);
     }
 
+    @Test
+    void 횟수_입력_테스트(){
+        System.setIn(new ByteArrayInputStream("10".getBytes()));
+        InputView inputView = new InputView();
+        assertThat(inputView.inputTryNumber()).isEqualTo(10);
+    }
 
     @Override
     public void runMain() {
