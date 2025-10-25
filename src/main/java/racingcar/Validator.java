@@ -12,4 +12,10 @@ public class Validator {
             throw new IllegalArgumentException(ErrorMessage.INVALID_CAR_NAME);
         }
     }
+
+    public static void validateTryNumber(String tryNumber){
+        if(!Pattern.matches(Regex.TRY_NUMBER,tryNumber)){
+            throw new IllegalArgumentException(ErrorMessage.INVALID_TRY_NUMBER);
+        }
+    }
 }

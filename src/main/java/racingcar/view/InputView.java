@@ -18,7 +18,14 @@ public class InputView {
         return carNames;
     }
 
-//    public int inputTryNumber(){
-//
-//    }
+    public int inputTryNumber(){
+        System.out.println("Input try number");
+        String input = Console.readLine();
+        Validator.validateTryNumber(input);
+        try{
+            return Integer.parseInt(input);
+        }catch (NumberFormatException e){
+           throw new IllegalArgumentException("Invalid try number");
+        }
+    }
 }
