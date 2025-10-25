@@ -1,2 +1,24 @@
-package racingcar.view;public class InputView {
+package racingcar.view;
+
+import camp.nextstep.edu.missionutils.Console;
+import java.util.ArrayList;
+import java.util.List;
+import racingcar.Validator;
+
+public class InputView {
+    public List<String> inputCarNames(){
+        System.out.println("Input car names");
+        String input = Console.readLine();
+        String[] names = input.split(",");
+        List<String> carNames = new ArrayList<>();
+        for(String name : names) {
+            Validator.validateCarName(name);
+            carNames.add(name);
+        }
+        return carNames;
+    }
+
+//    public int inputTryNumber(){
+//
+//    }
 }
