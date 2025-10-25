@@ -4,6 +4,8 @@ import camp.nextstep.edu.missionutils.test.NsTest;
 import java.io.ByteArrayInputStream;
 import java.util.List;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.view.InputView;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
@@ -17,31 +19,42 @@ class ApplicationTest extends NsTest {
 
     @Test
     void 기능_테스트() {
-        assertRandomNumberInRangeTest(
-            () -> {
-                run("pobi,woni", "1");
-                assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
-            },
-            MOVING_FORWARD, STOP
-        );
+        assertRandomNumberInRangeTest(() -> {
+            run("pobi,woni", "1");
+            assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
+        }, MOVING_FORWARD, STOP);
     }
 
     @Test
     void 예외_테스트() {
-        assertSimpleTest(() ->
-            assertThatThrownBy(() -> runException("pobi,javaji", "1"))
-                .isInstanceOf(IllegalArgumentException.class)
-        );
+        assertSimpleTest(() -> assertThatThrownBy(() -> runException("pobi,javaji", "1")).isInstanceOf(
+                IllegalArgumentException.class));
     }
 
     @Test
-    void 이름_입력_테스트(){
+    void 이름_입력_테스트() {
         System.setIn(new ByteArrayInputStream("pobi,woni,jun".getBytes()));
         InputView inputView = new InputView();
         List<String> expect = List.of("pobi", "woni", "jun");
         assertThat(inputView.inputCarNames()).isEqualTo(expect);
     }
 
+
+    @ParameterizedTest
+    @ValueSource(strings = {
+            "nameLengthOver",
+            "한글문자길이초과",
+            "123456",
+            "name!",
+            "name%",
+            "*@(#",
+            " ",
+            ""
+    })
+    void 검증기_테스트(String names) {
+        assertThatThrownBy(() -> Validator.validateCarName(names)).
+                isInstanceOf(IllegalArgumentException.class);
+    }
 
 
     @Override
