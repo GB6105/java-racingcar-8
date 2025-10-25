@@ -1,7 +1,10 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.test.NsTest;
+import java.io.ByteArrayInputStream;
+import java.util.List;
 import org.junit.jupiter.api.Test;
+import racingcar.view.InputView;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
 import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
@@ -30,6 +33,16 @@ class ApplicationTest extends NsTest {
                 .isInstanceOf(IllegalArgumentException.class)
         );
     }
+
+    @Test
+    void 이름_입력_테스트(){
+        System.setIn(new ByteArrayInputStream("pobi,woni,jun".getBytes()));
+        InputView inputView = new InputView();
+        List<String> expect = List.of("pobi", "woni", "jun");
+        assertThat(inputView.inputCarNames()).isEqualTo(expect);
+    }
+
+
 
     @Override
     public void runMain() {
