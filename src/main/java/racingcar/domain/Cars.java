@@ -20,7 +20,7 @@ public class Cars {
 
     private void moveCar(Car car) {
         int randomNumber = Randoms.pickNumberInRange(0, 9);
-        if (randomNumber > 4) {
+        if (randomNumber >= 4) {
             car.increaseDistance();
         }
     }
