@@ -6,7 +6,7 @@ import racingcar.domain.Cars;
 import racingcar.view.InputView;
 
 public class RaceGame {
-    public static void run() {
+    public void run() {
         InputView inputView = new InputView();
         List<String> inputNames = inputView.inputCarNames();
         int tryNumber = inputView.inputTryNumber();
