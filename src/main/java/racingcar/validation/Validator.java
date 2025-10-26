@@ -1,8 +1,7 @@
-package racingcar;
+package racingcar.validation;
 
 import java.util.regex.Pattern;
-import racingcar.util.ErrorMessage;
-import racingcar.util.Regex;
+import racingcar.constant.ErrorMessage;
 
 public class Validator {
     public Validator(){};

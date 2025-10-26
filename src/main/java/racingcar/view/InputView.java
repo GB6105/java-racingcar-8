@@ -3,8 +3,8 @@ package racingcar.view;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.List;
-import racingcar.Validator;
-import racingcar.util.Message;
+import racingcar.constant.Message;
+import racingcar.validation.Validator;
 
 public class InputView {
     public List<String> inputCarNames(){

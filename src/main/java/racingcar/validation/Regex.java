@@ -1,4 +1,4 @@
-package racingcar.util;
+package racingcar.validation;
 
 public final class Regex {
     public static final String CAR_NAME = "^[a-zA-Zㄱ-힣0-9]{1,5}$";
