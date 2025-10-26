@@ -4,10 +4,11 @@ import camp.nextstep.edu.missionutils.Console;
 import java.util.ArrayList;
 import java.util.List;
 import racingcar.Validator;
+import racingcar.util.Message;
 
 public class InputView {
     public List<String> inputCarNames(){
-        System.out.println("Input car names");
+        System.out.println(Message.REQUIRE_CAR_NAMES);
         String input = Console.readLine();
         String[] names = input.split(",");
         List<String> carNames = new ArrayList<>();
@@ -19,7 +20,7 @@ public class InputView {
     }
 
     public int inputTryNumber(){
-        System.out.println("Input try number");
+        System.out.println(Message.REQUIRE_TRY_NUMBER);
         String input = Console.readLine();
         Validator.validateTryNumber(input);
         try{
