@@ -6,7 +6,7 @@ import racingcar.domain.Race;
 import racingcar.view.OutputView;
 
 public class RaceController {
-    public void run(int tryNumber, Cars cars){
+    public void startRace(int tryNumber, Cars cars){
         Race race = new Race(cars);
         while(tryNumber > 0){
             race.raceOneRound();

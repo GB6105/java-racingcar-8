@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 import racingcar.domain.Car;
+import racingcar.validation.Validator;
 import racingcar.view.InputView;
 
 import static camp.nextstep.edu.missionutils.test.Assertions.assertRandomNumberInRangeTest;
@@ -57,14 +58,14 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void 횟수_입력_테스트(){
+    void 횟수_입력_테스트() {
         System.setIn(new ByteArrayInputStream("10".getBytes()));
         InputView inputView = new InputView();
         assertThat(inputView.inputTryNumber()).isEqualTo(10);
     }
 
     @Test
-    void 자동차_생성_테스트(){
+    void 자동차_생성_테스트() {
         String testName = "pobi";
         Car car = new Car(testName);
         assertThat(car.getName()).isEqualTo(testName);
@@ -73,7 +74,7 @@ class ApplicationTest extends NsTest {
     }
 
     @Test
-    void 자동차_이동_테스트(){
+    void 자동차_이동_테스트() {
         String testName = "pobi";
         Car car = new Car(testName);
         car.increaseDistance();
