@@ -18,5 +18,6 @@ public class Car {
 
     public void increaseDistance() {
         distance++;
+
     }
 }

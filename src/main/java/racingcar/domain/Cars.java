@@ -4,7 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 import java.util.List;
 
 public class Cars {
-    private final List<Car> cars;
+    private List<Car> cars;
 
     public Cars(List<String> carNames) {
         this.cars = carNames.stream()
@@ -23,5 +23,9 @@ public class Cars {
         if (randomNumber > 4) {
             car.increaseDistance();
         }
+    }
+
+    public List<Car> getCars() {
+        return cars;
     }
 }
