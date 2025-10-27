@@ -13,9 +13,11 @@ public class InputView {
         String[] names = input.split(",");
         List<String> carNames = new ArrayList<>();
         for(String name : names) {
-            Validator.validateCarName(name);
-            carNames.add(name);
+            String trimmedName = name.trim();
+            Validator.validateCarName(trimmedName);
+            carNames.add(trimmedName);
         }
+        Validator.validateDuplicateName(carNames);
         return carNames;
     }
 
