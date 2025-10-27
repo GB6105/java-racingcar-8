@@ -1,5 +1,6 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.test.NsTest;
 import java.io.ByteArrayInputStream;
 import java.util.List;
@@ -39,6 +40,7 @@ class ApplicationTest extends NsTest {
         InputView inputView = new InputView();
         List<String> expect = List.of("pobi", "woni", "jun");
         assertThat(inputView.inputCarNames()).isEqualTo(expect);
+        Console.close();
     }
 
     @ParameterizedTest
@@ -59,9 +61,10 @@ class ApplicationTest extends NsTest {
 
     @Test
     void 횟수_입력_테스트() {
-        System.setIn(new ByteArrayInputStream("10".getBytes()));
+        System.setIn(new ByteArrayInputStream("10\n".getBytes()));
         InputView inputView = new InputView();
         assertThat(inputView.inputTryNumber()).isEqualTo(10);
+        Console.close();
     }
 
     @Test
